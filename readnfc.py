@@ -15,6 +15,7 @@ def touched(tag):
 
     return True
 
+beep_on_read = False
 
 print("Setting up reader...")
 reader = nfc.ContactlessFrontend('usb')
@@ -23,5 +24,5 @@ print("Ready!")
 print("")
 
 while True:
-    reader.connect(rdwr={'on-connect': touched})
+    reader.connect(rdwr={'on-connect': touched, 'beep-on-connect': beep_on_read})
     time.sleep(0.1)
